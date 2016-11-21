@@ -1,4 +1,4 @@
-package model;
+package com.estafet.model;
 
 import java.util.List;
 
