@@ -13,8 +13,8 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile group: 'org.apache.camel', name: 'camel-core', version: '2.18.0'
-    compile 'org.springframework:spring-core'
+    compile group: 'org.apache.camel', name: 'camel-core', version: '2.15.1'
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.4.RELEASE'
     compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
@@ -24,11 +24,6 @@ dependencies {
 
 jar {
     manifest {
-        instruction 'Bundle-SymbolicName', project.name
-        instruction 'Bundle-Name',  project.name
-        instruction 'Bundle-Version', version
-        instruction 'Bundle-ManifestVersion', version
-        instruction 'Bnd-LastModified', '9999999999999'
         instruction 'Created-By', 'Dzhelil Ramadan'
     }
 }
