@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.camel:camel-core-osgi:2.17.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.camel/camel-core-osgi/2.17.0/4082207f5a0a3fca7ce63be04659e435cdb90acc/camel-core-osgi-2.17.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.camel/camel-core-osgi/2.17.0/fdbe8d6f7617c8fcc17cd2a91a1cf014bd05704f/camel-core-osgi-2.17.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
