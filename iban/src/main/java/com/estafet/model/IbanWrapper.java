@@ -1,11 +1,12 @@
 package com.estafet.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by DRamadan on 21-Nov-16.
  */
-public class IbanWrapper {
+public class IbanWrapper implements Serializable{
 
     private List<String> ibans;
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BankReports.iml" filepath="$PROJECT_DIR$/.idea/modules/BankReports.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BankReports_main.iml" filepath="$PROJECT_DIR$/.idea/modules/BankReports_main.iml" group="BankReports" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BankReports_test.iml" filepath="$PROJECT_DIR$/.idea/modules/BankReports_test.iml" group="BankReports" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iban/iban.iml" filepath="$PROJECT_DIR$/.idea/modules/iban/iban.iml" group="iban" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iban/iban_main.iml" filepath="$PROJECT_DIR$/.idea/modules/iban/iban_main.iml" group="iban" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iban/iban_test.iml" filepath="$PROJECT_DIR$/.idea/modules/iban/iban_test.iml" group="iban" />
+    </modules>
+  </component>
+</project>

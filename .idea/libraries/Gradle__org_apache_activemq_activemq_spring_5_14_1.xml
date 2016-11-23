@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.activemq:activemq-spring:5.14.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.activemq/activemq-spring/5.14.1/171920b7d6673cce9c0273b4ba4170a7a35cb1d0/activemq-spring-5.14.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.activemq/activemq-spring/5.14.1/6aa83351a445acbcb865fa23bc73146d5de95810/activemq-spring-5.14.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
