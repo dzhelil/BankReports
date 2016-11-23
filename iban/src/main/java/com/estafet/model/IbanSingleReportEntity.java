@@ -1,9 +1,11 @@
 package com.estafet.model;
 
+import java.io.Serializable;
+
 /**
  * Created by DRamadan on 21-Nov-16.
  */
-public class IbanSingleReportEntity {
+public class IbanSingleReportEntity implements Serializable{
 
     private String iban;
     private String name;

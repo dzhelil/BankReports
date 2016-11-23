@@ -12,9 +12,39 @@
 
     <!-- Basic Bean Definitions-->
 
-        <bean id="ibanWrapper" class="com.estafet.model.IbanWrapper"/>
-
     <bean id="entry" class="com.estafet.controller.Entry"/>
+
+    <bean id="processing" class="com.estafet.controller.Processing"/>
+
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+        <property name="userName" value="admin"/>
+        <property name="password" value="welcome1"/>
+    </bean>
+
+    <!--<bean id="jmsConnectionFactory"
+          class="org.apache.activemq.ActiveMQSslConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616" />
+        <property name="userName" value="admin"/>
+        <property name="password" value="welcome1"/>
+    </bean>
+
+    <bean id="pooledConnectionFactory"
+          class="org.apache.activemq.pool.PooledConnectionFactory">
+        <property name="maxConnections" value="8" />
+        <property name="connectionFactory" ref="jmsConnectionFactory" />
+    </bean>
+
+    <bean id="jmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+        <property name="connectionFactory" ref="pooledConnectionFactory"/>
+        <property name="transacted" value="false"/>
+        <property name="concurrentConsumers" value="10"/>
+    </bean>
+
+    <bean id="activemq"
+          class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="configuration" ref="jmsConfig"/>
+    </bean>-->
 
     <!-- Osgi Service Related -->
     <!--
@@ -26,6 +56,7 @@
     -->
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="entry"/>
+        <routeBuilder ref="processing"/>
     </camelContext>
 
 </blueprint>

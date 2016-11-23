@@ -1,11 +1,12 @@
 package com.estafet.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by DRamadan on 21-Nov-16.
  */
-public class AccountsWrapper {
+public class AccountsWrapper implements Serializable{
 
     public List<IbanSingleReportEntity> getAccounts() {
         return accounts;
@@ -16,4 +17,5 @@ public class AccountsWrapper {
     }
 
     private List<IbanSingleReportEntity> accounts;
+
 }
