@@ -33,9 +33,8 @@ public class Entry extends RouteBuilder {
                 .log(LoggingLevel.DEBUG, "Route started : ${routeId}\nRequest Body : \n${body}")
                 //.validate()
                 .unmarshal().json(JsonLibrary.Jackson, IbanWrapper.class)
-
+                .setHeader("IbanTimestampOfRequest", simple("${date:now:yyyy MM dd HH_mm_ss_SSS}"))
                 .split(simple("${body.getIbans()}"))
-                    .setHeader("IbanTimestampOfRequest", simple("${date:now:yyyy MM dd HH_mm_ss}"))
                     .to(ExchangePattern.InOnly, "activemq:queue:estafet.iban.report.splitted.queue")
                     .log(LoggingLevel.INFO, "Incoming message: ${in.body}")
                 .end();

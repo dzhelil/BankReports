@@ -4,17 +4,20 @@ import org.apache.http.HttpStatus;
 import org.junit.Test;
 
 import static com.jayway.restassured.RestAssured.given;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by DRamadan on 23-Nov-16.
  */
 public class IntegTest {
     @Test
-    public void testManyRequests() {
+    public void testManyRequests() throws InterruptedException {
 
         for (int i= 0; i < 100; i++) {
 
-            given()
+            Thread.sleep(500);
+
+            String response = given()
                 .contentType(ContentType.JSON)
                 .body("{\n" +
                         "\"ibans\": [\n" +
@@ -27,7 +30,12 @@ public class IntegTest {
                 .post("http://localhost:20616/estafet/iban/report")
                 .then()
                 .assertThat()
-                .statusCode(200);
+                .statusCode(200)
+                    .extract()
+                    .response()
+                    .asString();
+
+            assertNotNull(response);
         }
     }
 }
