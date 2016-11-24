@@ -41,10 +41,9 @@ public class Processing extends RouteBuilder {
                 .process(processor)
                 .enrich("direct:enricher", enricher)
                 .aggregate(header("IbanTimestampOfRequest"), strategy)
-                .completionInterval(2000)
-                .marshal().json(JsonLibrary.Jackson)
-
-                .to(ExchangePattern.InOnly, "file://C:/Users/DRamadan/Documents/data/iban/reports/?fileName=${date:now:yyyy MM dd HH_mm_ss}.txt");
+                .completionInterval(5000)
+                .marshal().json(JsonLibrary.Jackson, true)
+                .to(ExchangePattern.InOnly, "file://C:/Users/DRamadan/Documents/data/iban/reports/?fileName=${date:now:yyyy MM dd HH_mm_ss_SSS}.txt");
 
         from("direct:enricher").process(localProcessor);
     }
