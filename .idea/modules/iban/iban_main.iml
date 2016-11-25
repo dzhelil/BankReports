@@ -21,6 +21,8 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.5" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.camel:camel-csv:2.15.2" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.camel:camel-xstream:1.6.2" level="project" />
+    <orderEntry type="module" module-name="bankx-models_main" />
+    <orderEntry type="module" module-name="bankx-accounts-api_main" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.13" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.xml.bind:jaxb-core:2.2.11" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.xml.bind:jaxb-impl:2.2.11" level="project" />

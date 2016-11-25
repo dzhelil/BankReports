@@ -16,6 +16,10 @@
 
     <bean id="processing" class="com.estafet.controller.Processing"/>
 
+    <bean id="enrichService" class="com.estafet.common.CustomLocalProcessor">
+        <property name="accountEnricherService" ref="accoutService"/>
+    </bean>
+
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="brokerURL" value="tcp://localhost:61616"/>
         <property name="userName" value="admin"/>
@@ -57,6 +61,7 @@
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="entry"/>
         <routeBuilder ref="processing"/>
+
     </camelContext>
 
 </blueprint>

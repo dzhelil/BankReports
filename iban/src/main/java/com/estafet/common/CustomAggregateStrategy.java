@@ -1,8 +1,7 @@
 package com.estafet.common;
 
-import com.estafet.model.AccountsWrapper;
-import com.estafet.model.IbanSingleReportEntity;
-import com.estafet.model.IbanWrapper;
+import com.estafet.dao.Account;
+import com.estafet.dao.AccountsWrapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.processor.aggregate.AggregationStrategy;
 
@@ -23,18 +22,18 @@ public class CustomAggregateStrategy implements AggregationStrategy {
 
     @Override
     public Exchange aggregate(Exchange original, Exchange update) {
-        IbanSingleReportEntity newBody = update.getIn().getBody(IbanSingleReportEntity.class);
+        Account newBody = update.getIn().getBody(Account.class);
         AccountsWrapper wrapper = new AccountsWrapper();
-        ArrayList<IbanSingleReportEntity> list = null;
+        ArrayList<Account> list = null;
         if (original == null) {
-            list = new ArrayList<IbanSingleReportEntity>();
+            list = new ArrayList<Account>();
             list.add(newBody);
             wrapper.setAccounts(list);
             update.getIn().setBody(wrapper);
             return update;
         }
         wrapper = original.getIn().getBody(AccountsWrapper.class);
-        List<IbanSingleReportEntity> newList = wrapper.getAccounts();
+        List<Account> newList = wrapper.getAccounts();
         newList.add(newBody);
         wrapper.setAccounts(newList);
         original.getIn().setBody(wrapper);

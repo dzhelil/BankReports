@@ -1,7 +1,6 @@
 package com.estafet.common;
 
-import com.estafet.model.AccountsWrapper;
-import com.estafet.model.IbanSingleReportEntity;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Expression;
 import org.apache.camel.Processor;

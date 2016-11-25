@@ -1,3 +1,8 @@
 rootProject.name = 'BankReports'
 include 'iban'
+include 'bankx-models'
+include 'bankx-models'
+include 'test'
+include 'bankx-accounts-api'
+include 'bankx-accounts-impl'
 

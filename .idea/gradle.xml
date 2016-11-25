@@ -9,7 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/bankx-accounts-api" />
+            <option value="$PROJECT_DIR$/bankx-accounts-impl" />
+            <option value="$PROJECT_DIR$/bankx-models" />
             <option value="$PROJECT_DIR$/iban" />
+            <option value="$PROJECT_DIR$/test" />
           </set>
         </option>
       </GradleProjectSettings>
