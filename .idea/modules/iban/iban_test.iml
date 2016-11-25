@@ -22,6 +22,8 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.5" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.camel:camel-csv:2.15.2" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.camel:camel-xstream:1.6.2" level="project" />
+    <orderEntry type="module" module-name="bankx-models_main" />
+    <orderEntry type="module" module-name="bankx-accounts-api_main" />
     <orderEntry type="library" name="Gradle: junit:junit:4.11" level="project" />
     <orderEntry type="library" name="Gradle: com.jayway.restassured:rest-assured:2.4.0" level="project" />
     <orderEntry type="library" name="Gradle: com.jayway.restassured:json-schema-validator:2.4.0" level="project" />

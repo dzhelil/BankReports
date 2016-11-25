@@ -1,6 +1,7 @@
 package com.estafet.common;
 
-import com.estafet.model.IbanSingleReportEntity;
+import com.estafet.dao.Account;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.slf4j.Logger;
@@ -14,7 +15,7 @@ public class CustomProcessor implements Processor{
     @Override
     public void process(Exchange exchange) throws Exception {
         String payload = exchange.getIn().getBody(String.class);
-        IbanSingleReportEntity currentIban = new IbanSingleReportEntity();
+        Account currentIban = new Account();
         currentIban.setIban(payload);
         exchange.getIn().setBody(currentIban);
     }

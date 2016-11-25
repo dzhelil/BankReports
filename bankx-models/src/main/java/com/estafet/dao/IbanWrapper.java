@@ -1,4 +1,4 @@
-package com.estafet.model;
+package com.estafet.dao;
 
 import java.io.Serializable;
 import java.util.List;

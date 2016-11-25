@@ -21,8 +21,16 @@
     <bytecodeTargetLevel>
       <module name="BankReports_main" target="1.8" />
       <module name="BankReports_test" target="1.8" />
+      <module name="bankx-accounts-api_main" target="1.8" />
+      <module name="bankx-accounts-api_test" target="1.8" />
+      <module name="bankx-accounts-impl_main" target="1.8" />
+      <module name="bankx-accounts-impl_test" target="1.8" />
+      <module name="bankx-models_main" target="1.8" />
+      <module name="bankx-models_test" target="1.8" />
       <module name="iban_main" target="1.8" />
       <module name="iban_test" target="1.8" />
+      <module name="test_main" target="1.5" />
+      <module name="test_test" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

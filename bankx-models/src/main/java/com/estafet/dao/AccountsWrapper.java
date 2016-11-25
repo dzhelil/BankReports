@@ -1,4 +1,4 @@
-package com.estafet.model;
+package com.estafet.dao;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,14 +8,14 @@ import java.util.List;
  */
 public class AccountsWrapper implements Serializable{
 
-    public List<IbanSingleReportEntity> getAccounts() {
+    public List<Account> getAccounts() {
         return accounts;
     }
 
-    public void setAccounts(List<IbanSingleReportEntity> accounts) {
+    public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
     }
 
-    private List<IbanSingleReportEntity> accounts;
+    private List<Account> accounts;
 
 }

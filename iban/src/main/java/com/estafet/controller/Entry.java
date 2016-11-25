@@ -1,17 +1,11 @@
 package com.estafet.controller;
 
 import com.estafet.common.CustomException;
-import com.estafet.model.IbanSingleReportEntity;
-import com.estafet.model.IbanWrapper;
-import org.apache.camel.Exchange;
+import com.estafet.dao.IbanWrapper;
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.sql.Timestamp;
 
 
 /**
