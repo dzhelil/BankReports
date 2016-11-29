@@ -5,4 +5,5 @@ include 'bankx-models'
 include 'test'
 include 'bankx-accounts-api'
 include 'bankx-accounts-impl'
+include 'bankx-accounts-alternative-impl'
 

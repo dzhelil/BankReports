@@ -18,16 +18,9 @@ public class CustomLocalProcessor implements Processor {
 
     @Override
     public void process(Exchange exchange) throws Exception {
-        /*IbanSingleReportEntity entity = exchange.getIn().getBody(IbanSingleReportEntity.class);
-        entity.setCurrency("BGN");
-        entity.setBalance(100);
-        entity.setName("Ivan " + Math.random());*/
 
-        String iban = exchange.getIn().getBody(String.class);
-
-        Account account = accountEnricherService.getAccountByIban(iban);
-
+        Account ibanAccount = exchange.getIn().getBody(Account.class);
+        Account account = accountEnricherService.getAccountByIban(ibanAccount.getIban());
         exchange.getIn().setBody(account);
-
     }
 }
