@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Starter Blueprint Camel Definition beans
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:camel="http://camel.apache.org/schema/blueprint"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+           xsi:schemaLocation="
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <bean id="entry" class="com.estafet.controller.Entry"/>
+
+    <bean id="processing" class="com.estafet.controller.Processing"/>
+
+    <bean id="enrichService" class="com.estafet.common.CustomLocalProcessor">
+        <property name="accountEnricherService" ref="accoutService"/>
+    </bean>
+
+    <bean id="customProcessor" class="com.estafet.common.CustomProcessor"/>
+
+    <bean id="customEnricher" class="com.estafet.common.CustomEnricher" />
+
+    <bean id="aggregation" class="com.estafet.common.CustomAggregateStrategy" />
+
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+        <property name="userName" value="admin"/>
+        <property name="password" value="welcome1"/>
+    </bean>
+    <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="entry"/>
+        <routeBuilder ref="processing"/>
+    </camelContext>
+
+</blueprint>

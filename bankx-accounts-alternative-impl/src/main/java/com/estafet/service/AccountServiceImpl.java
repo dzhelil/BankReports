@@ -4,9 +4,7 @@ package com.estafet.service;
 import com.estafet.api.AccountServiceApi;
 import com.estafet.dao.Account;
 
-/**
- * Created by DRamadan on 24-Nov-16.
- */
+
 public class AccountServiceImpl implements AccountServiceApi {
 
     @Override
@@ -16,26 +14,26 @@ public class AccountServiceImpl implements AccountServiceApi {
 
         switch (iban) {
             case "BG66 ESTF 0616 0000 0000 01" :
-                account.setName("Ivan Petrov");
+                account.setName("Ivan2 Petrov2");
                 account.setCurrency("USD");
                 account.setBalance(234);
                 account.setIban(iban);
                 break;
             case "BG66 ESTF 0616 0000 0000 02" :
-                account.setName("Dimitar Dimov");
+                account.setName("Dimitar2 Dimov2");
                 account.setCurrency("EUR");
                 account.setBalance(543);
                 account.setIban(iban);
                 break;
             case "BG66 ESTF 0616 0000 0000 03" :
-                account.setName("Yane Yanev");
+                account.setName("Yane2 Yanev2");
                 account.setCurrency("BGN");
                 account.setBalance(987);
                 account.setIban(iban);
                 break;
             default:
-                account.setName("Error Error");
-                account.setCurrency("Error");
+                account.setName("Error2 Error2");
+                account.setCurrency("Error2");
                 account.setBalance(0);
                 account.setIban(iban);
         }

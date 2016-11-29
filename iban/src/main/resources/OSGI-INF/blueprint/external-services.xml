@@ -10,30 +10,6 @@
        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-    <!-- Basic Bean Definitions-->
-    <!--
-        <bean id="foo" class="foo.bar.Baz">
-            <property name="simpleProperty" value="Hello World" />
-            <property
-        </bean>
-    -->
-
-    <!-- Osgi Service Related -->
-    <!--
-        Exposing Services :
-        ...
-
-        References to Services :
-        <reference id="referenceId" availability="optional" interface="foo.bar.IBaz"/>
-    -->
     <reference id="accoutService" interface="com.estafet.api.AccountServiceApi"/>
-
-   <!-- <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
-        <route>
-            <from uri="direct:route"/>
-
-            <log message="Hello World!"/>
-        </route>
-    </camelContext>-->
 
 </blueprint>
