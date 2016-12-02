@@ -1,6 +1,6 @@
-package com.estafet.common;
+package com.estafet.processors;
 
-import com.estafet.dao.Account;
+import com.estafet.pojo.Account;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;

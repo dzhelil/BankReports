@@ -22,7 +22,7 @@ jar {
         instruction 'Created-By', 'Dzhelil Ramadan'
         instruction 'Export-Package', "com.estafet.com.service"
         instruction 'Import-Package', "com.estafet.api, " +
-                    "com.estafet.dao"
+                    "com.estafet.pojo"
     }
 }
 task deployLocallyInFuse (dependsOn: jar) {

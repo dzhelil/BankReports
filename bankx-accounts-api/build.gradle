@@ -19,7 +19,7 @@ jar {
     manifest {
         instruction 'Created-By', 'Dzhelil Ramadan'
         instruction 'Export-Package', "com.estafet.api"
-        instruction 'Import-Package', "com.estafet.dao"
+        instruction 'Import-Package', "com.estafet.pojo"
     }
 }
 
