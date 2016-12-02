@@ -10,15 +10,19 @@
        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-    <bean id="entry" class="com.estafet.controller.Entry"/>
+    <bean id="entry" class="com.estafet.controller.BankXEntry"/>
 
-    <bean id="processing" class="com.estafet.controller.Processing"/>
+    <bean id="processing" class="com.estafet.controller.BankXProcessing"/>
 
-    <bean id="enrichService" class="com.estafet.common.CustomLocalProcessor">
+    <bean id="report" class="com.estafet.controller.BankXReport" />
+
+    <bean id="schedule" class="com.estafet.controller.BankXSchedule" />
+
+    <bean id="enrichService" class="com.estafet.processors.CustomLocalProcessor">
         <property name="accountEnricherService" ref="accoutService"/>
     </bean>
 
-    <bean id="customProcessor" class="com.estafet.common.CustomProcessor"/>
+    <bean id="customProcessor" class="com.estafet.processors.CustomProcessor"/>
 
     <bean id="customEnricher" class="com.estafet.common.CustomEnricher" />
 
@@ -29,9 +33,16 @@
         <property name="userName" value="admin"/>
         <property name="password" value="welcome1"/>
     </bean>
+
+    <bean id="fileRenameProcessor" class="com.estafet.processors.FileRenameProcessor" />
+
+    <bean id="csvReportProcessor" class="com.estafet.processors.CSVReportProcessor" />
+
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="entry"/>
         <routeBuilder ref="processing"/>
+        <routeBuilder ref="report" />
+        <routeBuilder ref="schedule" />
     </camelContext>
 
 </blueprint>

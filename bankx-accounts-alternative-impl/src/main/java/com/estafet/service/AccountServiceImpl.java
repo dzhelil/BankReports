@@ -2,7 +2,7 @@ package com.estafet.service;
 
 
 import com.estafet.api.AccountServiceApi;
-import com.estafet.dao.Account;
+import com.estafet.pojo.Account;
 
 
 public class AccountServiceImpl implements AccountServiceApi {

@@ -1,7 +1,7 @@
 package com.estafet.controller;
 
 import com.estafet.common.CustomException;
-import com.estafet.dao.IbanWrapper;
+import com.estafet.pojo.IbanWrapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.LoggingLevel;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by DRamadan on 21-Nov-16.
  */
-public class Entry extends RouteBuilder {
+public class BankXEntry extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
@@ -26,13 +26,13 @@ public class Entry extends RouteBuilder {
 
         from("jetty:{{entrypoint.url}}")
                 .routeId("{{entry.route.id}}")
-                .log(LoggingLevel.DEBUG, "Route started : ${routeId}\nRequest Body : \n${body}")
+                //.log(LoggingLevel.DEBUG, "Route started : ${routeId}\nRequest Body : \n${body}")
                 //.validate()
                 .unmarshal().json(JsonLibrary.Jackson, IbanWrapper.class)
                 .setHeader("{{header.name}}", simple("${date:now:yyyy MM dd HH_mm_ss_SSS}"))
                 .split(simple("${body.getIbans()}"))
                     .to(ExchangePattern.InOnly, "{{activemq.url}}")
-                    .log(LoggingLevel.INFO, "Incoming message: ${in.body}")
+                    //.log(LoggingLevel.INFO, "Incoming message: ${in.body}")
                 .end();
     }
 }

@@ -1,4 +1,4 @@
-package com.estafet.dao;
+package com.estafet.pojo;
 
 import java.io.Serializable;
 import java.util.List;

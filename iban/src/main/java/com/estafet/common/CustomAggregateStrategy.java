@@ -1,7 +1,7 @@
 package com.estafet.common;
 
-import com.estafet.dao.Account;
-import com.estafet.dao.AccountsWrapper;
+import com.estafet.pojo.Account;
+import com.estafet.pojo.AccountsWrapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.processor.aggregate.AggregationStrategy;
 
@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-import javax.accessibility.AccessibleAction;
 import java.util.ArrayList;
 import java.util.List;
 
