@@ -22,11 +22,12 @@ public class BankXEntry extends RouteBuilder {
         onException(CustomException.class)
                 .log(LoggingLevel.ERROR, "${exception.message} + ' : ' + ${exception.stacktrace}")
                 .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(HttpServletResponse.SC_INTERNAL_SERVER_ERROR))
+                .setBody(simple("Something went wrong."))
                 .to("{{activemq.url}}");
 
         from("jetty:{{entrypoint.url}}")
                 .routeId("{{entry.route.id}}")
-                //.log(LoggingLevel.DEBUG, "Route started : ${routeId}\nRequest Body : \n${body}")
+                //.log(LoggingLevel.INFO, "Route started : ${routeId}\nRequest Body : \n${body}")
                 //.validate()
                 .unmarshal().json(JsonLibrary.Jackson, IbanWrapper.class)
                 .setHeader("{{header.name}}", simple("${date:now:yyyy MM dd HH_mm_ss_SSS}"))

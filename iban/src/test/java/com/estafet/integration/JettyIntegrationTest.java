@@ -1,15 +1,22 @@
+package com.estafet.integration;
+
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
+import com.jayway.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 
+import javax.servlet.http.HttpServletResponse;
+
 import static com.jayway.restassured.RestAssured.given;
+import static org.apache.camel.builder.Builder.simple;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by DRamadan on 23-Nov-16.
  */
-public class IntegTest {
+public class JettyIntegrationTest {
     @Test
     public void testManyRequests() throws InterruptedException {
 
@@ -37,5 +44,23 @@ public class IntegTest {
 
             assertNotNull(response);
         }
+    }
+
+    @Test
+    public void challengeRouteJettyInsertAccountsWithJibberish() {
+
+        Response response = given()
+                //@formatter:off
+                .contentType(ContentType.JSON)
+                .body(simple("Not valid json!!!"))
+                .when()
+                .post("http://localhost:20616/estafet/iban/report")
+                .then()
+                .assertThat()
+                .statusCode(HttpServletResponse.SC_INTERNAL_SERVER_ERROR)
+                .assertThat()
+                .body(equalTo("Something went wrong."))
+                //@formatter:on
+                .extract().response();
     }
 }

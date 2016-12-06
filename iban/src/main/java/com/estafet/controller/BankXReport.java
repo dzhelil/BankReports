@@ -28,14 +28,9 @@ public class BankXReport extends RouteBuilder {
                 .filter(header(Exchange.FILE_NAME).endsWith(".txt"))
                 .idempotentConsumer(header(Exchange.FILE_NAME), MemoryIdempotentRepository.memoryIdempotentRepository(200))
                 .unmarshal().json(JsonLibrary.Jackson, AccountsWrapper.class)
-                .process("fileRenameProcessor")
-                //.split(simple("${body.getAccounts()}"))
-                .setHeader("CamelFileName", simple("${header.CamelFileName}.csv"))
-                //.setHeader("CamelFileName", simple("${date:now:yyyy MM dd HH_mm_ss_SSS}.csv"))
+                    .process("fileRenameProcessor")
+                    .setHeader("CamelFileName", simple("${header.CamelFileName}.csv"))
                 .marshal(bindy)
-
-                .log(LoggingLevel.INFO, "Request Body : \n${body}")
-
                 .to("file://{{csv.store.path}}")
                 .end();
     }
