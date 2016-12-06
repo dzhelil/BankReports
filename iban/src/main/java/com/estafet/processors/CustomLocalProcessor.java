@@ -20,7 +20,8 @@ public class CustomLocalProcessor implements Processor {
     public void process(Exchange exchange) throws Exception {
 
         Account ibanAccount = exchange.getIn().getBody(Account.class);
-        Account account = accountEnricherService.getAccountByIban(ibanAccount.getIban());
+        String iban = ibanAccount.getIban();
+        Account account = accountEnricherService.getAccountByIban(iban);
         exchange.getIn().setBody(account);
     }
 }
