@@ -6,4 +6,7 @@ include 'test'
 include 'bankx-accounts-api'
 include 'bankx-accounts-impl'
 include 'bankx-accounts-alternative-impl'
+include 'bankx-iban-dao-api'
+include 'bankx-iban-dao-impl'
+include 'bankx-iban-dao-model'
 
