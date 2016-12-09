@@ -36,6 +36,10 @@
         <property name="accountService" ref="accountService"/>
     </bean>
 
+    <bean id="dbTransactionProcessor" class="com.estafet.processors.DBTransactionProcessor">
+        <property name="accountService" ref="accountService"/>
+    </bean>
+
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="entry"/>
         <routeBuilder ref="processing"/>
