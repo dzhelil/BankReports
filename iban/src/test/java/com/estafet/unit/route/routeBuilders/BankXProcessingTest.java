@@ -3,13 +3,10 @@ package com.estafet.unit.route.routeBuilders;
 import com.estafet.api.AccountServiceApi;
 import com.estafet.common.CustomAggregateStrategy;
 import com.estafet.common.CustomEnricher;
-import com.estafet.common.Utils;
 import com.estafet.controller.BankXProcessing;
-import com.estafet.pojo.Account;
 import com.estafet.processors.CustomLocalProcessor;
 import com.estafet.processors.CustomProcessor;
 import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.builder.AdviceWithRouteBuilder;
 import org.apache.camel.builder.RouteBuilder;
@@ -22,13 +19,9 @@ import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.logging.Logger;
 
-import static org.apache.camel.builder.AdviceWithTasks.replaceFromWith;
 import static org.apache.camel.builder.Builder.simple;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 /**

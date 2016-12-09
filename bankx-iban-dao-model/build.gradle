@@ -1,0 +1,63 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'osgi'
+apply plugin: 'openjpa'
+
+sourceCompatibility = 1.7
+
+buildscript {
+    repositories {
+        flatDir dirs: "gradle-plugin"
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'at.schmutterer.oss.gradle:gradle-openjpa:1.0.0'
+        classpath 'org.apache.openjpa:openjpa:2.3.0'
+    }
+}
+
+openjpa {
+    persistenceXmlFile = file('src/main/resources/META-INF/osgi-persistence.xml')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile group: 'org.apache.camel', name: 'camel-bindy', version: '2.17.0'
+    compile group: 'org.apache.camel', name: 'camel-csv', version: '2.17.0'
+    compile group: 'org.apache.openjpa', name: 'openjpa', version: '2.3.0'
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+    compile group: 'org.apache.camel', name: 'camel-jpa', version: '2.17.0'
+
+
+    testCompile group: 'org.apache.openjpa', name: 'openjpa', version: '2.3.0'
+    testCompile group: 'org.dbunit', name: 'dbunit', version: '2.5.2'
+    testCompile group: 'org.apache.camel', name: 'camel-test', version: '2.17.0'
+}
+
+jar {
+    manifest {
+        instruction 'Created-By', 'Dzhelil Ramadan'
+        instruction 'Meta-Persistence', 'META-INF/osgi-persistence.xml'
+        instruction 'Import-Package', "org.apache.camel.dataformat.bindy.annotation, " +
+                'org.apache.commons.dbcp, ' +
+                'javax.sql, ' +
+                '*'
+        instruction 'Export-Package', "com.estafet.pojo"
+    }
+}
+
+task deployLocallyInFuse (dependsOn: jar) {
+    doLast {
+        copy {
+            from(jar)
+            into jboss_fuse_location_local
+        }
+    }
+}

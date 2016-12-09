@@ -16,6 +16,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class BankXEntry extends RouteBuilder {
 
+    /**
+     * Entry route which takes json on jetty entrypoint and sends data to active mq
+     * @throws Exception
+     */
     @Override
     public void configure() throws Exception {
 
@@ -27,13 +31,10 @@ public class BankXEntry extends RouteBuilder {
 
         from("jetty:{{entrypoint.url}}")
                 .routeId("{{entry.route.id}}")
-                //.log(LoggingLevel.INFO, "Route started : ${routeId}\nRequest Body : \n${body}")
-                //.validate()
                 .unmarshal().json(JsonLibrary.Jackson, IbanWrapper.class)
                 .setHeader("{{header.name}}", simple("${date:now:yyyy MM dd HH_mm_ss_SSS}"))
                 .split(simple("${body.getIbans()}"))
                     .to(ExchangePattern.InOnly, "{{activemq.url}}")
-                    //.log(LoggingLevel.INFO, "Incoming message: ${in.body}")
                 .end();
     }
 }

@@ -14,6 +14,12 @@ import java.util.ArrayList;
  */
 public class CustomEnricher implements AggregationStrategy {
 
+    /**
+     * Enriches the message. Will be used in the future
+     * @param oldExchange - original message
+     * @param newExchange - uodated message
+     * @return - enriched message
+     */
     @Override
     public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
         return newExchange;

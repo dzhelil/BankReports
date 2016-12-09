@@ -1,12 +1,9 @@
 package com.estafet.controller;
 
-import com.estafet.pojo.Account;
 import org.apache.camel.Exchange;
-import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 
 import org.apache.camel.dataformat.bindy.csv.BindyCsvDataFormat;
-import org.apache.camel.dataformat.csv.CsvDataFormat;
 import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.processor.idempotent.MemoryIdempotentRepository;
 import com.estafet.pojo.AccountsWrapper;
@@ -20,6 +17,10 @@ public class BankXReport extends RouteBuilder {
 
     private DataFormat bindy = new BindyCsvDataFormat(AccountsWrapper.class);
 
+    /**
+     * Report route which reads txt files from ftp server and converts them to csv files
+     * @throws Exception
+     */
     @Override
     public void configure() throws Exception {
 

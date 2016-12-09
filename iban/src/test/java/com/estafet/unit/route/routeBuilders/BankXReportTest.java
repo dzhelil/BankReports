@@ -1,13 +1,7 @@
 package com.estafet.unit.route.routeBuilders;
 
-import com.estafet.api.AccountServiceApi;
-import com.estafet.common.CustomAggregateStrategy;
-import com.estafet.common.CustomEnricher;
 import com.estafet.common.Utils;
-import com.estafet.controller.BankXProcessing;
 import com.estafet.controller.BankXReport;
-import com.estafet.processors.CustomLocalProcessor;
-import com.estafet.processors.CustomProcessor;
 import com.estafet.processors.FileRenameProcessor;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
@@ -28,7 +22,6 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import static org.apache.camel.builder.Builder.simple;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 /**
@@ -62,9 +55,7 @@ public class BankXReportTest extends CamelTestSupport{
         JndiRegistry registry = super.createRegistry();
 
         FileRenameProcessor fileNameProcessor = new FileRenameProcessor();
-
         registry.bind("fileRenameProcessor", fileNameProcessor);
-
         return registry;
     }
 

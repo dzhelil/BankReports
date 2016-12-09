@@ -1,18 +1,13 @@
 package com.estafet.unit.route.routeBuilders;
 
 import com.estafet.controller.BankXEntry;
-import com.estafet.pojo.Account;
 import org.apache.camel.CamelContext;
-import org.apache.camel.ExchangePattern;
-import org.apache.camel.Producer;
+import org.apache.camel.builder.AdviceWithRouteBuilder;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.mock.AssertionClause;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.component.properties.PropertiesComponent;
-import org.apache.camel.model.FromDefinition;
 import org.apache.camel.model.ModelCamelContext;
 import org.apache.camel.model.RouteDefinition;
-import org.apache.camel.test.AvailablePortFinder;
 import org.apache.camel.test.junit4.CamelTestSupport;
 
 import org.junit.Before;
@@ -22,13 +17,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
-import static org.apache.log4j.lf5.viewer.LogTableColumn.LEVEL;
 
 /**
  * Created by DRamadan on 02-Dec-16.
@@ -43,10 +33,10 @@ public class BankXEntryTest extends CamelTestSupport {
         RouteDefinition route = context().getRouteDefinition("entry");
 
         ModelCamelContext mcc = context.adapt(ModelCamelContext.class);
-        route.adviceWith(mcc, new RouteBuilder() {
+        route.adviceWith(mcc, new AdviceWithRouteBuilder() {
             @Override
             public void configure() throws Exception {
-                //replaceRouteFromWith("entry", "direct:jetty.mock");
+                replaceFromWith("direct:jetty.mock");
                 interceptSendToEndpoint("activemq:*")
                         .skipSendToOriginalEndpoint()
                         .to("mock:activemq.mock.test");
@@ -76,7 +66,8 @@ public class BankXEntryTest extends CamelTestSupport {
               ]
         }*/
 
-        template.sendBody("jetty:{{entrypoint.url}}", challenge);
+//        template.sendBody("jetty:{{entrypoint.url}}", challenge);
+        template.sendBody("direct:jetty.mock", challenge);
 
         assertMockEndpointsSatisfied();
     }

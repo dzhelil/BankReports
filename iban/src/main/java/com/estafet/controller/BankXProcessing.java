@@ -13,6 +13,10 @@ import org.apache.camel.spi.Registry;
  */
 public class BankXProcessing extends RouteBuilder {
 
+    /**
+     * Processing route which reads from an active mq, enriches messages, transforms them to text files and saves them to ftp server
+     * @throws Exception
+     */
     @Override
     public void configure() throws Exception {
 
@@ -22,7 +26,6 @@ public class BankXProcessing extends RouteBuilder {
 
         from("{{activemq.url}}")
                 .routeId("{{processing.route.id}}")
-                //.log(LoggingLevel.INFO, "Request Body ACTIVEMQ : \n${body}")
                 .process("customProcessor")
                 .enrich("{{enricher.url}}", customEnricher)
                 .aggregate(header("IbanTimestampOfRequest"), strategy)
