@@ -16,12 +16,18 @@ public class CustomLocalProcessor implements Processor {
 
     private AccountServiceApi accountEnricherService;
 
+    /**
+     * Processor that enriches messages through calling service
+     * @param exchange - the message
+     * @throws Exception
+     */
     @Override
     public void process(Exchange exchange) throws Exception {
-
         Account ibanAccount = exchange.getIn().getBody(Account.class);
-        String iban = ibanAccount.getIban();
-        Account account = accountEnricherService.getAccountByIban(iban);
-        exchange.getIn().setBody(account);
+        if(ibanAccount != null) {
+            String iban = ibanAccount.getIban();
+            Account account = accountEnricherService.getAccountByIban(iban);
+            exchange.getIn().setBody(account);
+        }
     }
 }

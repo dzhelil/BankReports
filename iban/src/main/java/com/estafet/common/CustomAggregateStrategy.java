@@ -19,6 +19,12 @@ public class CustomAggregateStrategy implements AggregationStrategy {
 
     private static Logger logger = LoggerFactory.getLogger(CustomAggregateStrategy.class);
 
+    /**
+     * Aggregates coming account object to account wrapper object
+     * @param original - original message
+     * @param update - new message
+     * @return - the updated message with added account
+     */
     @Override
     public Exchange aggregate(Exchange original, Exchange update) {
         Account newBody = update.getIn().getBody(Account.class);

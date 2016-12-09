@@ -18,8 +18,10 @@
 
     <bean id="schedule" class="com.estafet.controller.BankXSchedule" />
 
+    <bean id="db" class="com.estafet.controller.BankXDB" />
+
     <bean id="enrichService" class="com.estafet.processors.CustomLocalProcessor">
-        <property name="accountEnricherService" ref="accoutService"/>
+        <property name="accountEnricherService" ref="accountService"/>
     </bean>
 
     <bean id="customProcessor" class="com.estafet.processors.CustomProcessor"/>
@@ -28,21 +30,18 @@
 
     <bean id="aggregation" class="com.estafet.common.CustomAggregateStrategy" />
 
-    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
-        <property name="brokerURL" value="tcp://localhost:61616"/>
-        <property name="userName" value="admin"/>
-        <property name="password" value="welcome1"/>
-    </bean>
-
     <bean id="fileRenameProcessor" class="com.estafet.processors.FileRenameProcessor" />
 
-    <bean id="csvReportProcessor" class="com.estafet.processors.CSVReportProcessor" />
+    <bean id="dbPersistProcessor" class="com.estafet.processors.DBPersistProcessor">
+        <property name="accountService" ref="accountService"/>
+    </bean>
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="entry"/>
         <routeBuilder ref="processing"/>
         <routeBuilder ref="report" />
         <routeBuilder ref="schedule" />
+        <routeBuilder ref="db" />
     </camelContext>
 
 </blueprint>

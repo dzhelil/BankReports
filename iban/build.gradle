@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'osgi'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.7
 
 repositories {
     mavenCentral()
@@ -30,13 +30,15 @@ dependencies {
     compile group: 'org.apache.camel', name: 'camel-jetty', version: '2.17.0'
     compile group: 'org.apache.camel', name: 'camel-jms', version: '2.17.0'
     compile group: 'org.apache.camel', name: 'camel-jackson', version: '2.17.0'
+    compile group: 'org.apache.camel', name: 'camel-jpa', version: '2.17.0'
+    compile group: 'org.apache.openjpa', name: 'openjpa', version: '2.3.0'
+
 
     testCompile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
     testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.5'
     testCompile 'com.jayway.restassured:rest-assured:2.4.0'
     testCompile 'com.jayway.restassured:json-schema-validator:2.4.0'
     testCompile group: 'org.apache.camel', name: 'camel-test', version: '2.17.0'
-
 
     testCompile group: 'org.dbunit', name: 'dbunit', version: '2.5.2'
     testCompile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
@@ -56,7 +58,10 @@ jar {
                 'org.apache.activemq.camel.component, ' +
                 'com.estafet.api, ' +
                 'org.apache.camel.dataformat.bindy.csv, ' +
+                'org.apache.camel.component.jpa, ' +
+                'com.estafet.pojo, ' +
                 '* '
+        instruction 'Export-Package', 'org.apache.camel.component.jpa'
     }
 }
 
