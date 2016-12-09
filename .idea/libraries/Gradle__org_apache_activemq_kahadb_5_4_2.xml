@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.activemq:kahadb:5.4.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.activemq/kahadb/5.4.2/85941e0364c24847dff19e04e9b26e6a2b91909f/kahadb-5.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.activemq/kahadb/5.4.2/e7fa80209a9276a870d685fd6e31ad849a86e937/kahadb-5.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

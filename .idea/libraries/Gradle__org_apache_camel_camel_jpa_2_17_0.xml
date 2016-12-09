@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.camel:camel-jpa:2.17.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.camel/camel-jpa/2.17.0/125deb90089b3335ae6776db50892e571df1de4c/camel-jpa-2.17.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.camel/camel-jpa/2.17.0/54279073335c1d11a24701a30de175e64764b8c1/camel-jpa-2.17.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

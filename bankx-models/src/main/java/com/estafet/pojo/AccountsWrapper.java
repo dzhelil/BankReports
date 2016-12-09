@@ -1,12 +1,9 @@
-package com.estafet.pojo;
+package com.estafet.pojo.old;
 
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
-import org.apache.camel.dataformat.bindy.annotation.DataField;
-import org.apache.camel.dataformat.bindy.annotation.Link;
 import org.apache.camel.dataformat.bindy.annotation.OneToMany;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
