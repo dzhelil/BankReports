@@ -3,9 +3,25 @@ package com.estafet.service;
 
 import com.estafet.api.AccountServiceApi;
 import com.estafet.pojo.Account;
+import com.estafet.pojo.AccountDB;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 
 public class AccountServiceImpl implements AccountServiceApi {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    /**
+     *EntityManager setter for the blueprint mapping with jpa context
+     *
+     * @param entityManager
+     */
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
     public Account getAccountByIban(String iban) {
@@ -38,6 +54,24 @@ public class AccountServiceImpl implements AccountServiceApi {
                 account.setIban(iban);
         }
         return account;
+    }
+
+    /**
+     * Persists new account
+     * @param account
+     */
+    @Override
+    public void persistAccount(AccountDB account) {
+        entityManager.persist(account);
+    }
+
+    /**
+     * Merges account data
+     * @param account
+     */
+    @Override
+    public void mergeAccount(AccountDB account) {
+        entityManager.merge(account);
     }
 
 }
