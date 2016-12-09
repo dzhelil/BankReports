@@ -27,8 +27,8 @@ public class DBPersistProcessor implements Processor {
         AccountDB account = exchange.getIn().getBody(AccountDB.class);
 
         if (account != null) {
-            account.setChanged(true);
-            accountService.mergeAccount(account);
+            account.setChanged(false);
+            accountService.persistAccount(account);
             logger.info("Done");
         }
     }
